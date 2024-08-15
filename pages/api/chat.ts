@@ -90,7 +90,9 @@ export default async function handler(
 
       // Generate the full prompt including conversation history
       const fullPrompt = generatePrompt(
-        history.map((msg) => `${msg.user}: ${msg.text}`),
+        history.map(
+          (msg: { user: any; text: any }) => `${msg.user}: ${msg.text}`
+        ),
         relevantDocs,
         prompt
       );
